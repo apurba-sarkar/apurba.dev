@@ -5,43 +5,56 @@ import React, { useEffect, useRef } from "react";
 
 // eslint-disable-next-line react/display-name
 const Banner = React.memo(() => {
-  const loaders=["https://prod.spline.design/b11Xog-PChDjiLZT/scene.splinecode"]
-  const canvasRef = useRef(null);
+  // const loaders = [
+  //   "https://prod.spline.design/b11Xog-PChDjiLZT/scene.splinecode",
+  //   "https://prod.spline.design/n75tH-JdvygFzO07/scene.splinecode",
+  //   "https://prod.spline.design/yStt4MBzAqchxgEu/scene.splinecode",
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const app = new Application(canvas);
-    app.load(loaders[0]);
-  
-    const limitFrameRate = () => {
-      let lastFrameTime = Date.now();
-      const desiredFPS = 30; // Target 30 FPS
-      const interval = 1000 / desiredFPS;
-  
-      const render = () => {
-        requestAnimationFrame(render);
-        const now = Date.now();
-        const delta = now - lastFrameTime;
-  
-        if (delta > interval) {
-          app.render(); // Render only if enough time has passed
-          lastFrameTime = now - (delta % interval);
-          // console.log(lastFrameTime)
-        }
-      };
-      render();
-    };
-  
-    limitFrameRate();
-  
-    return () => {
-      app.dispose();
-    };
-  }, []);
-  
+  // ];
+  // const canvasRef = useRef(null);
+
+  //  const random = Math.floor(Math.random() * 3)
+  // //  console.log(random)
+  // useEffect(() => {
+  //   const canvas = canvasRef.current;
+  //   const app = new Application(canvas);
+  //   app.load(loaders[4]);
+
+  //   const limitFrameRate = () => {
+  //     let lastFrameTime = Date.now();
+  //     const desiredFPS = 30; // Target 30 FPS
+  //     const interval = 1000 / desiredFPS;
+
+  //     const render = () => {
+  //       requestAnimationFrame(render);
+  //       const now = Date.now();
+  //       const delta = now - lastFrameTime;
+
+  //       if (delta > interval) {
+  //         app.render(); // Render only if enough time has passed
+  //         lastFrameTime = now - (delta % interval);
+  //         // console.log(lastFrameTime)
+  //       }
+  //     };
+  //     render();
+  //   };
+
+  //   limitFrameRate();
+
+  //   return () => {
+  //     app.dispose();
+  //   };
+  // }, []);
+
   return (
     <div className="banner">
-      <canvas ref={canvasRef} id="canvas3d" />
+      {/* <canvas ref={canvasRef} id="canvas3d" /> */}
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center",textAlign:"center"}}>
+        <h1 style={{ color: "var(--main-color" }}>
+          THIS IS THE LITE VERSION OF THIS <br /> WEBSITE WITHOUT ANY HEAVY{" "}
+          <br /> ANIMATION
+        </h1>
+      </div>
     </div>
   );
 });
